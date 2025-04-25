@@ -16,8 +16,12 @@ export default class CrossmintEmbed {
     private get _frameUrl() {
         const { environment, chain, projectId, forceWalletSelection } = this._config;
         const projectIdQueryParam = projectId != null ? `&projectId=${projectId}` : "";
-        const forceWalletSelectionQueryParam = forceWalletSelection != null ? `&forceWalletSelection=${forceWalletSelection}` : "";
-
+        const forceWalletSelectionQueryParam =
+            forceWalletSelection != null ? `&forceWalletSelection=${forceWalletSelection}` : "";
+        console.log(
+            "_frameUrl: ",
+            `${environment}/2023-06-09/frame?chain=${chain}${projectIdQueryParam}${forceWalletSelectionQueryParam}`
+        );
         return `${environment}/2023-06-09/frame?chain=${chain}${projectIdQueryParam}${forceWalletSelectionQueryParam}`;
     }
 
@@ -253,7 +257,7 @@ export default class CrossmintEmbed {
                         window.document.body.removeChild(loginIframe);
 
                         resolve(undefined);
-                    }, this._config.maxTimeAutoConnectMs);
+                    }, 3000);
 
                     const handleMessage = async (e: MessageEvent<any>) => {
                         if (!ALLOWED_ORIGINS.includes(e.origin)) return;
