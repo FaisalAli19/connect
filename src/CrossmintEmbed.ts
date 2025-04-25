@@ -18,10 +18,6 @@ export default class CrossmintEmbed {
         const projectIdQueryParam = projectId != null ? `&projectId=${projectId}` : "";
         const forceWalletSelectionQueryParam =
             forceWalletSelection != null ? `&forceWalletSelection=${forceWalletSelection}` : "";
-        console.log(
-            "_frameUrl: ",
-            `${environment}/2023-06-09/frame?chain=${chain}${projectIdQueryParam}${forceWalletSelectionQueryParam}`
-        );
         return `${environment}/2023-06-09/frame?chain=${chain}${projectIdQueryParam}${forceWalletSelectionQueryParam}`;
     }
 
@@ -260,8 +256,10 @@ export default class CrossmintEmbed {
                     }, 3000);
 
                     const handleMessage = async (e: MessageEvent<any>) => {
+                        console.log(ALLOWED_ORIGINS.includes(e.origin));
                         if (!ALLOWED_ORIGINS.includes(e.origin)) return;
 
+                        console.log("🚀 ~ CrossmintEmbed ~ handleMessage ~ e.data:", e.data);
                         const { request, data } = e.data;
 
                         switch (request) {
