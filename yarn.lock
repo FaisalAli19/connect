@@ -1575,10 +1575,10 @@ lodash@4.17.21, lodash@^4.17.19, lodash@^4.17.20:
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
-lucid-cardano@^0.10.1:
-  version "0.10.1"
-  resolved "https://registry.yarnpkg.com/lucid-cardano/-/lucid-cardano-0.10.1.tgz#816bfe2304bfee306cd6abb30160454f91214a1d"
-  integrity sha512-mqdDebVjAUIurqHLkAGBi+fpLdML2HcjuiJBoYT8X8goNvgmDlPdqAvvkC+K86tl/VVO+4txnyskzj3iWyaq/g==
+lucid-cardano@^0.10.11:
+  version "0.10.11"
+  resolved "https://registry.yarnpkg.com/lucid-cardano/-/lucid-cardano-0.10.11.tgz#ed3f2340b08e8e0b5bb4391e69d9893be1894752"
+  integrity sha512-bpfrLQjpathPAH/N+BMXfLzp+O5P7LtZjg6aaVsC3EUfRo7I9Y85ZIhxpfEIati+CcpRviWRVMKcAlDnPuPFkA==
   dependencies:
     "@peculiar/webcrypto" "^1.4.0"
     node-fetch "^3.2.3"
