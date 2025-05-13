@@ -1,6 +1,4 @@
 import * as _solana_wallet_adapter_base from '@solana/wallet-adapter-base';
-import { BaseMessageSignerWalletAdapter, WalletReadyState, WalletAdapterNetwork } from '@solana/wallet-adapter-base';
-import { PublicKey, Transaction } from '@solana/web3.js';
 
 interface SiteMetadata {
     name: string;
@@ -95,31 +93,6 @@ declare class CrossmintEmbed {
     private getLoginFromIFrame;
 }
 
-declare class CrossmintSolanaWalletAdapter extends BaseMessageSignerWalletAdapter {
-    name: _solana_wallet_adapter_base.WalletName<"Crossmint">;
-    url: string;
-    icon: string;
-    private _connecting;
-    private _publicKey;
-    private _forceInstalled;
-    private _config;
-    private _client?;
-    constructor(params: Omit<CrossmintEmbedParams & {
-        forceInstalled?: boolean;
-    }, "chain">);
-    get publicKey(): PublicKey | null;
-    get connecting(): boolean;
-    get connected(): boolean;
-    get readyState(): WalletReadyState;
-    connect(): Promise<void>;
-    disconnect(): Promise<void>;
-    signTransaction(transaction: Transaction): Promise<Transaction>;
-    signAllTransactions(transactions: Transaction[]): Promise<Transaction[]>;
-    signMessage(message: Uint8Array): Promise<Uint8Array>;
-}
-
-declare function networkToCrossmintEnvironment(network: WalletAdapterNetwork): CrossmintEnvironment;
-
 declare class CrossmintEVMWalletAdapter {
     name: _solana_wallet_adapter_base.WalletName<"Crossmint">;
     url: string;
@@ -143,16 +116,4 @@ declare class CrossmintEVMWalletAdapter {
     }>;
 }
 
-declare enum CardanoNetwork {
-    PREVIEW = "preview",
-    PREPROD = "preprod",
-    MAINNET = "mainnet"
-}
-declare type CardanoWalletApi = {
-    getNetworkId(): Promise<number>;
-    getUsedAddresses(): Promise<string[]>;
-};
-
-declare function cardanoNetworkToCrossmintEnvironment(network: CardanoNetwork): CrossmintEnvironment;
-
-export { AppMetadata, BlockchainTypes, CardanoNetwork, CardanoWalletApi, CrossmintEVMWalletAdapter, CrossmintEmbedBaseRequest, CrossmintEmbedBaseRequestData, CrossmintEmbedBaseRequestDataType, CrossmintEmbedConfig, CrossmintEmbedParams, CrossmintEmbedRequestAccountData, CrossmintEmbedRequestType, CrossmintEmbedSignMessageData, CrossmintEnvironment, CrossmintSolanaWalletAdapter, CrossmintStore, SiteMetadata, cardanoNetworkToCrossmintEnvironment, CrossmintEmbed as default, networkToCrossmintEnvironment };
+export { AppMetadata, BlockchainTypes, CrossmintEVMWalletAdapter, CrossmintEmbedBaseRequest, CrossmintEmbedBaseRequestData, CrossmintEmbedBaseRequestDataType, CrossmintEmbedConfig, CrossmintEmbedParams, CrossmintEmbedRequestAccountData, CrossmintEmbedRequestType, CrossmintEmbedSignMessageData, CrossmintEnvironment, CrossmintStore, SiteMetadata, CrossmintEmbed as default };
